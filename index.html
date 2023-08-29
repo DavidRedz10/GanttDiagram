@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Diagrama de Gantt - Plataforma Web de Auditoría</title>
+    <link rel="stylesheet" href="https://cdn.dhtmlx.com/gantt/edge/dhtmlxgantt.css">
+    <script src="https://cdn.dhtmlx.com/gantt/edge/dhtmlxgantt.js"></script>
+</head>
+<body>
+    <div id="gantt_here" style="width: 100%; height: 600px;"></div>
+
+    <script>
+        gantt.config.xml_date = "%Y-%m-%d %H:%i";
+        gantt.init("gantt_here");
+        
+        gantt.parse({
+            data: [
+                { id: 1, text: "Investigación y Planificación", start_date: "2023-08-26", duration: 7 },
+                { id: 2, text: "Diseño de la Plataforma", start_date: "2023-09-02", duration: 14 },
+                { id: 3, text: "Desarrollo Frontend", start_date: "2023-09-09", duration: 21 },
+                { id: 4, text: "Desarrollo Backend", start_date: "2023-09-16", duration: 21 },
+                { id: 5, text: "Integración y Pruebas", start_date: "2023-09-30", duration: 14 },
+                { id: 6, text: "Diseño de Informes", start_date: "2023-10-14", duration: 7 },
+                { id: 7, text: "Generación de Documentos", start_date: "2023-10-21", duration: 14 },
+                { id: 8, text: "Pruebas Finales", start_date: "2023-11-04", duration: 14 },
+                { id: 9, text: "Entrega y Despliegue", start_date: "2023-11-18", duration: 7 },
+                { id: 10, text: "Capacitación", start_date: "2023-11-25", duration: 7 },
+                { id: 11, text: "Documentación Final", start_date: "2023-12-02", duration: 7 }
+            ],
+            links: [
+                { id: 1, source: 1, target: 2, type: "finish_to_start" },
+                { id: 2, source: 2, target: 3, type: "finish_to_start" },
+                { id: 3, source: 2, target: 4, type: "finish_to_start" },
+                { id: 4, source: 3, target: 5, type: "finish_to_start" },
+                { id: 5, source: 4, target: 5, type: "finish_to_start" },
+                { id: 6, source: 5, target: 6, type: "finish_to_start" },
+                { id: 7, source: 5, target: 7, type: "finish_to_start" },
+                { id: 8, source: 7, target: 8, type: "finish_to_start" },
+                { id: 9, source: 8, target: 9, type: "finish_to_start" },
+                { id: 10, source: 9, target: 10, type: "finish_to_start" },
+                { id: 11, source: 10, target: 11, type: "finish_to_start" }
+            ]
+        });
+    </script>
+</body>
+</html>
